@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,4 +26,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.fragment.app.FragmentContainerView
+        android:name="com.example.andersren_task_1_2.RecyclerViewFragment"
+        android:id="@+id/RecyclerViewFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
