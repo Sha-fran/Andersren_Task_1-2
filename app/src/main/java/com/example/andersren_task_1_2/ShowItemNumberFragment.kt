@@ -35,7 +35,7 @@ class ShowItemNumberFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.textView.text = arguments?.getString("number")
+        binding.textView.text = arguments?.getString(KEY)
     }
 
     override fun onDestroy() {

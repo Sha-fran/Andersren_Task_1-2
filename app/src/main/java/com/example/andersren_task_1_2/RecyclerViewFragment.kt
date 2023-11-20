@@ -10,6 +10,7 @@ import com.example.andersren_task_1_2.databinding.RecyclerViewFragmentBinding
 import java.util.Random
 
 const val NUMBER_OF_ITEMS = 10
+const val KEY = "number"
 
 class RecyclerViewFragment : Fragment(), OnItemClickListener {
     private val listOfImages = mutableListOf<Int>()
@@ -64,16 +65,16 @@ class RecyclerViewFragment : Fragment(), OnItemClickListener {
         val showItemNumberFragment = ShowItemNumberFragment.newInstance()
 
         when(position) {
-            0 -> args.putString("number", "1 (first)")
-            1 -> args.putString("number", "2 (second)")
-            2 -> args.putString("number", "3 (third)")
-            3 -> args.putString("number", "4 (fourth)")
-            4 -> args.putString("number", "5 (fifth)")
-            5 -> args.putString("number", "6 (sixth)")
-            6 -> args.putString("number", "7 (seventh)")
-            7 -> args.putString("number", "8 (eighth)")
-            8 -> args.putString("number", "9 (ninth)")
-            9 -> args.putString("number", "10 (tenth)")
+            0 -> args.putString(KEY, "1 (first)")
+            1 -> args.putString(KEY, "2 (second)")
+            2 -> args.putString(KEY, "3 (third)")
+            3 -> args.putString(KEY, "4 (fourth)")
+            4 -> args.putString(KEY, "5 (fifth)")
+            5 -> args.putString(KEY, "6 (sixth)")
+            6 -> args.putString(KEY, "7 (seventh)")
+            7 -> args.putString(KEY, "8 (eighth)")
+            8 -> args.putString(KEY, "9 (ninth)")
+            9 -> args.putString(KEY, "10 (tenth)")
         }
 
         showItemNumberFragment.arguments = args

@@ -5,7 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.andersren_task_1_2.databinding.RwItemBinding
 
-class RecyclerViewAdapter(items: List<Int> = listOf(), val onItemClickListener:OnItemClickListener) :
+class RecyclerViewAdapter(
+    items: List<Int> = listOf(),
+    val onItemClickListener: OnItemClickListener
+) :
     RecyclerView.Adapter<RecyclerViewHolder>() {
     private val itemsList: List<Int> = items
 
