@@ -11,7 +11,7 @@ import java.util.Random
 
 const val NUMBER_OF_ITEMS = 10
 
-class RecyclerViewFragment : Fragment() {
+class RecyclerViewFragment : Fragment(), OnItemClickListener {
     private val listOfImages = mutableListOf<Int>()
     private var _binding : RecyclerViewFragmentBinding? = null
     val binding get() = _binding!!
@@ -28,13 +28,12 @@ class RecyclerViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         listOfImagesCreation()
-        val adapter = RecyclerViewAdapter(listOfImages)
+        val adapter = RecyclerViewAdapter(listOfImages, onItemClickListener = this)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun listOfImagesCreation() {
-
        for (i in 0..NUMBER_OF_ITEMS) {
            listOfImages.add(i, findImage())
        }
@@ -53,5 +52,14 @@ class RecyclerViewFragment : Fragment() {
         }
 
         return R.drawable.snow
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    override fun onItemClick(item: Int) {
+        ShowItemNumberFragment.newInstance().show(childFragmentManager, TAG)
     }
 }

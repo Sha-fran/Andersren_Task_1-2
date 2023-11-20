@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.andersren_task_1_2.databinding.RwItemBinding
 
-class RecyclerViewAdapter(val items: List<Int> = listOf()) :
+class RecyclerViewAdapter(items: List<Int> = listOf(), val onItemClickListener:OnItemClickListener) :
     RecyclerView.Adapter<RecyclerViewHolder>() {
-    private val itemsList:List<Int> = items
+    private val itemsList: List<Int> = items
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
         return RecyclerViewHolder(
@@ -24,11 +24,15 @@ class RecyclerViewAdapter(val items: List<Int> = listOf()) :
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         holder.image.setImageResource(itemsList[position])
         holder.image.setOnClickListener {
-
+            onItemClickListener.onItemClick(itemsList[position])
         }
     }
 }
 
 class RecyclerViewHolder(binding: RwItemBinding) : RecyclerView.ViewHolder(binding.root) {
     val image = binding.image
+}
+
+interface OnItemClickListener {
+    fun onItemClick(item : Int)
 }
