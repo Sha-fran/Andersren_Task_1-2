@@ -1,5 +1,6 @@
 package com.example.andersren_task_1_2
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,11 @@ class ShowItemNumberFragment : DialogFragment() {
     ): View {
         _binding = ShowNumberOfFragmentBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.textView.text = arguments?.getString("number")
     }
 
     override fun onDestroy() {

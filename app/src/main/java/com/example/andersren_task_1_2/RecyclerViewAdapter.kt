@@ -24,7 +24,7 @@ class RecyclerViewAdapter(items: List<Int> = listOf(), val onItemClickListener:O
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         holder.image.setImageResource(itemsList[position])
         holder.image.setOnClickListener {
-            onItemClickListener.onItemClick(itemsList[position])
+            onItemClickListener.onItemClick(position)
         }
     }
 }
@@ -34,5 +34,5 @@ class RecyclerViewHolder(binding: RwItemBinding) : RecyclerView.ViewHolder(bindi
 }
 
 interface OnItemClickListener {
-    fun onItemClick(item : Int)
+    fun onItemClick(position: Int)
 }

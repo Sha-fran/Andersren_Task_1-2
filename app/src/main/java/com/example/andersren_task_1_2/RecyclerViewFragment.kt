@@ -59,7 +59,24 @@ class RecyclerViewFragment : Fragment(), OnItemClickListener {
         _binding = null
     }
 
-    override fun onItemClick(item: Int) {
-        ShowItemNumberFragment.newInstance().show(childFragmentManager, TAG)
+    override fun onItemClick(position : Int) {
+        val args = Bundle()
+        val showItemNumberFragment = ShowItemNumberFragment.newInstance()
+
+        when(position) {
+            0 -> args.putString("number", "1 (first)")
+            1 -> args.putString("number", "2 (second)")
+            2 -> args.putString("number", "3 (third)")
+            3 -> args.putString("number", "4 (fourth)")
+            4 -> args.putString("number", "5 (fifth)")
+            5 -> args.putString("number", "6 (sixth)")
+            6 -> args.putString("number", "7 (seventh)")
+            7 -> args.putString("number", "8 (eighth)")
+            8 -> args.putString("number", "9 (ninth)")
+            9 -> args.putString("number", "10 (tenth)")
+        }
+
+        showItemNumberFragment.arguments = args
+        showItemNumberFragment.show(childFragmentManager, TAG)
     }
 }
